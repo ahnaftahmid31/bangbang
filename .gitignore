@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+*assests/
 
 # IntelliJ related
 *.iml
