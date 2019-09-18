@@ -5,7 +5,7 @@ import 'package:toads_and_frogs/pages/test_first_page.dart';
 
 Future main() async {
   await SystemChrome.setEnabledSystemUIOverlays([]);
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
   runApp(MyApp());
 }
 
