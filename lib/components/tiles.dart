@@ -24,21 +24,23 @@ class Tile {
     c.drawRect(tileRect, tilePaint);
   }
 
-  void update() {
+  void update() {}
+
+  void shiftEffect(double u, double fx, double lx) {
 
   }
-  void shiftEm(Offset d) {
-    if (d.dx > 0) { // moving right
-
-      if(game.tiles[0].posX < 10.0) {
+  
+  void shiftEm(Offset d, double fx, double lx) {
+    if (d.dx > 0) {
+      // moving right
+      if (fx + d.dx < tileSize / 2) {
+        tileRect = tileRect.shift(d);
+      }
+    } else {
+      //moving left
+      if (lx + d.dx > game.screenWidth - tileSize / 2) {
         tileRect = tileRect.shift(d);
       }
     }
-    else { //moving left
-      if (game.tiles[game.totalTiles -1].posX > game.screenWidth - tileSize - 10.0) {
-        tileRect = tileRect.shift(d);
-      }
-    }
-    
   }
 }

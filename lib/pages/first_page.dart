@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:toads_and_frogs/buttons/round_button.dart';
 
-class First extends StatefulWidget {
+class FirstPage extends StatefulWidget {
+  static String route = '/';
   @override
   _FirstState createState() => _FirstState();
 }
 
-class _FirstState extends State<First> {
+class _FirstState extends State<FirstPage> {
   bool isLoadGame = false;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class _FirstState extends State<First> {
             ),
             RoundButton(
               onPressed: () {
-                print('pressed');
+                Navigator.pushNamed(context, '/game_page');
               },
               text: Text(
                 'New Game',
