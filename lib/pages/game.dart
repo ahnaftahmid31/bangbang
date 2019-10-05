@@ -39,20 +39,20 @@ class MyGame extends Game {
     bgRect = Rect.fromLTWH(0, 0, double.infinity, screenHeight);
     bgPaint = Paint()..color = Colors.white;
 
-    //initializing tiles
-
-    totalTiles = 12;
+    //initializing tiles (maximum 10 ^ 5, for good fps 100)
+    totalTiles = 9;
     gap = 10.0;
     totalScreenWidth = totalTiles * (gap + tileSize);
     double tx = tileSize / 2.0;
     double ty = screenHeight / 2.0 - tileSize / 2.0;
-    left = tx;
-
     tiles = List<Tile>();
+
     for (int i = 0; i < totalTiles; i++) {
       tiles.add(Tile(this, tx, ty, i));
       tx = tx + tileSize + gap;
     }
+
+    left = tiles[0].tileRect.left;
     right = tiles[totalTiles - 1].tileRect.right;
 
     //adding gestures
@@ -88,6 +88,7 @@ class MyGame extends Game {
   }
 
   void onDragUpdate(DragUpdateDetails du) {
+    print(du.globalPosition.dx);
     tiles.forEach(
       (Tile t) {
         t.shiftEm(du.delta, left, right);
