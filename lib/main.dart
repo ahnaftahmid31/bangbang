@@ -9,7 +9,7 @@ Future main() async {
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight],
   );
-  runApp(app);
+  runApp(MaterialApp(home: GameLoop(),));
 }
 
 MaterialApp get app => MaterialApp(
